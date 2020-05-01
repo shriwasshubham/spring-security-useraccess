@@ -1,5 +1,15 @@
 package com.shubham.springsecurityuseraccess.dao;
 
-public interface UserDetailsRepository {
 
+import com.shubham.springsecurityuseraccess.dto.UserLogin;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+
+
+@Repository
+public interface UserDetailsRepository extends JpaRepository<UserLogin, Long> {
+
+  public UserLogin findByUsername(String username);
 }
+

@@ -1,7 +1,7 @@
 package com.shubham.springsecurityuseraccess.service.auth;
 
 
-import com.shubham.springsecurityuseraccess.dao.UserDetailsRepository;
+import com.shubham.springsecurityuseraccess.dao.UserLoginRepository;
 import com.shubham.springsecurityuseraccess.dto.UserLogin;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class CustomUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private UserDetailsRepository userDao;
+	private UserLoginRepository userDao;
 
 	@Transactional(readOnly = true, propagation = Propagation.REQUIRES_NEW)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
